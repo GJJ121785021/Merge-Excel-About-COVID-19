@@ -29,7 +29,9 @@ def get_name_similarity(name1: str, name2: str) -> float:
     """
     name_similarity = get_similarity(name1, name2)
     pinyin_similarity = max([get_similarity(i, j) for i in get_pinyin(name1) for j in get_pinyin(name2)])
-    return name_similarity if name_similarity > pinyin_similarity else pinyin_similarity
+    if pinyin_similarity - name_similarity > 0.2:
+        return pinyin_similarity
+    return name_similarity
 
 
 def get_pinyin_similarity(name1: str, name2: str) -> float:
