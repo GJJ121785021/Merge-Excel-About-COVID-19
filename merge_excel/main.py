@@ -62,3 +62,25 @@ if __name__ == '__main__':
     # print('写入成功')
 
     read_excel()
+
+
+
+"""
+#! /bin/sh
+if_fail(){
+    [ $? -ne 0 ] && curl httpxxx && exit 1
+}
+
+cd /web && npm install && npm run build
+if_fail 
+
+cd /scr && mvn -f pom.xml dependency:copy-dependencies && mvn package
+if_fail
+
+fuser -k -n tcp 8080
+BUILD_ID=DONTKILLME
+cd /home && nohup java -jar fa.jar &
+if fail
+
+curl httpsuccess
+"""
